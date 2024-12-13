@@ -23,7 +23,7 @@ async function writeFile(filePath) {
     });
 
     rl.on('close', () => {
-      console.log(`File writing completed.`);
+      console.log('File writing completed.');
     });
 
     console.log('Enter data (type "exit" to quit):');
