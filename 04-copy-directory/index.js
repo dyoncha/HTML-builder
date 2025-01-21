@@ -3,9 +3,10 @@ const path = require('node:path');
 
 async function copyFiles(sourceFolder, folderCopy) {
   try {
-    const files = await fs.readdir(sourceFolder);
-
+    await fs.rm(folderCopy, { recursive: true, force: true });
     await fs.mkdir(folderCopy, { recursive: true });
+
+    const files = await fs.readdir(sourceFolder);
 
     for (let file of files) {
       const sourceFile = path.join(sourceFolder, file);
