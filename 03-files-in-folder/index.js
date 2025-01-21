@@ -26,6 +26,9 @@ function logFileInfo(filePath, file) {
     if (err) {
       return console.error(err.message);
     }
-    console.log(`${file.name} - ${path.extname(file.name)} - ${stats.size}`);
+    const fileName = path.parse(file.name).name;
+    const fileExt = path.parse(file.name).ext.slice(1);
+
+    console.log(`${fileName} - ${fileExt} - ${stats.size} bytes`);
   });
 }
